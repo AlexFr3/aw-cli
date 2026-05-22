@@ -1,0 +1,33 @@
+[project]
+name = "aw-cli"
+dynamic = ["version"]
+description = "Guarda anime dal terminale e molto altro!"
+readme = "README.md"
+license = "GPL-3.0"
+requires-python = ">=3.10"
+dependencies = [
+    "httpx>=0.28.1",
+    "pip-system-certs>=5.2",
+    "pydantic>=2.12.5",
+    "regex>=2025.9.18",
+    "rich>=13.9.4",
+    "toml>=0.10.2",
+    "wheel>=0.45.1",
+]
+
+[project.scripts]
+aw-cli = "aw_cli.run:main"
+
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "vcs"
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.3.0",
+    "pyright>=1.1.406",
+    "pytest>=8.4.2",
+]

@@ -48,6 +48,7 @@ class Fzf:
                     text=True,
                     stdout=subprocess.PIPE,
                     stderr=None,
+                    encoding='utf-8'
                 )
 
                 if process.returncode == 130:
@@ -109,7 +110,7 @@ class Fzf:
             cmd += ["--multi", "--bind", "ctrl-a:toggle-all"]
 
         if filter:
-            reload_cmd = f"{sys.executable} -m aw_cli.fzf.fzf --filter {{q}} --episodes \"{elements}\""
+            reload_cmd = f"{sys.executable} -X utf8 -m aw_cli.fzf.fzf --filter {{q}} --episodes \"{elements}\""
             cmd += [
                 "--phony",
                 "--bind", f"change:reload({reload_cmd})",

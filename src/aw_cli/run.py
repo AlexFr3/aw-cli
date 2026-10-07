@@ -419,7 +419,7 @@ def setup_config() -> None:
             )
         elif ut.os_name == "Windows":
             subprocess.run(
-                f"start '{link}'",
+                f'start "" "{link}"',
                 shell=True,
                 stdout=subprocess.DEVNULL,
                 stderr=subprocess.DEVNULL,
